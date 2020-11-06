@@ -39,11 +39,15 @@
 					<input type="" name="" placeholder="поиск" class="border rounded text-center px-3 ml-5 border-secondary">
 				</div>
 				<div class="col-4">
+					<a href="admin.php" class="font-weight-bold text-success">АДМИН ПАНЕЛЬ</a>
+
 					<div class="row">
+
 						<div class="col-6"></div>
 						<div class="col-2 px-0 pl-2">
 							<img src="1.png" class="w-50">
 						</div>
+
 						<div class="col-2 px-0 pl-2">
 							<div class="dropdown">
 							  <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,7 +81,7 @@
 					<div class="col-12 px-1">
 						<div class="row">
 							<div class="col-1 text-right pb-4 pt-2 px-0 ml-4">
-								<img src="3.png" class="w-100 rounded-circle">
+								<img src="brezylemcsgo.jpg" class="w-100 rounded-circle">
 							</div>
 							<div class="col-10 pb-4 pt-3 text-left">
 								<h6 class="mb-0"><?php echo $stroka["user"]?></h6>
@@ -95,7 +99,7 @@
 							<div class="box mt-2" style="display:none;">
 								<form action="update.php" method="GET" class="">
 									<input type="" name="text" class="col-4 " value="<?php echo $stroka["text"]?>" style="border:0">
-									<input type="hidden" name="id" class="col-4 form-control mt-2" value="1" style="border:0">
+									<input type="hidden" name="id" class="col-4 form-control mt-2" value="<?php echo $stroka["id"]?>" style="border:0">
 									<input type="hidden" name="img" class="col-4 form-control mt-2" value='<?php echo $stroka["img"]?>' style="border:0">
 									<button class="btn btn-primary mt-2" style="height:40px;">Сохранить</button>
 								</form>
@@ -107,7 +111,7 @@
 							<p>5 недель назад</p>
 						</div>
 						<form action="delete.php" method="GET">
-							<input type="hidden" name="delete" class="form-control" value="1">
+							<input type="hidden" name="delete" class="form-control" value="<?php echo $stroka["id"]?>">
 							<button class="btn bg-success text-white">Удалить</button> 
 						</form>
 
@@ -132,7 +136,7 @@
 					<div class="col-12">
 						<div class="row">
 							<div class="col-2 px-0">
-								<img src="3.png" class="w-100 rounded-circle">
+								<img src="brezylemcsgo.jpg" class="w-100 rounded-circle">
 							</div>
 							<div class="col-10">
 								<h6 class="mb-0">nonlokin</h6>
@@ -213,39 +217,22 @@
 	</div>
 
 <script type="text/javascript">
-	let box = document.querySelector(".box")
-	let box2 = document.querySelector(".box2")
-	let box3 = document.querySelector(".box3")
-	let edit = document.querySelector(".edit")
-	let edit2 = document.querySelector(".edit2")
-	let edit3 = document.querySelector(".edit3")
-	let cancel = document.querySelector(".cancel")
-	let cancel2 = document.querySelector(".cancel2")
-	let cancel3 = document.querySelector(".cancel3")
-	edit.onclick = function(){
-		box.style.display = "block"
-		edit.style.display="none"
+	let box = document.querySelectorAll(".box")
+	let edit = document.querySelectorAll(".edit")
+	let cancel = document.querySelectorAll(".cancel")
+	for(let i=0;i<edit.length;i++){
+		edit[i].onclick = function(){
+			box[i].style.display = "block"
+			edit[i].style.display="none"
+		}
+			
+		cancel[i].onclick = function(){
+			box[i].style.display="none"
+			edit[i].style.display="block"
+		}		
 	}
-	edit2.onclick = function(){
-		box2.style.display = "block"
-		edit2.style.display="none"
-	}
-	edit3.onclick = function(){
-		box3.style.display = "block"
-		edit3.style.display="none"
-	}		
-	cancel.onclick = function(){
-		box.style.display="none"
-		edit.style.display="block"
-	}
-	cancel2.onclick = function(){
-		box2.style.display="none"
-		edit2.style.display="block"
-	}
-	cancel3.onclick = function(){
-		box3.style.display="none"
-		edit3.style.display="block"
-	}		
+
+		
 </script>
 	
     <!-- Optional JavaScript -->

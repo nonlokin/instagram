@@ -17,6 +17,7 @@
 			<input type="" name="text" class="form-control mt-2" placeholder="Текст">
 			<button class="btn bg-success mt-2 text-white" style="margin-left:230px;">Добавить пост</button>
 		</form>
+		<a href="index.php" class="font-weight-bold " style="margin-left:230px;">Перейти в Instagram</a>
 	</div>
 
 
